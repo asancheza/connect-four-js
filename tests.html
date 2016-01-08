@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Connect Four Tests</title>
+  <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.20.0.css">
+</head>
+<body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script src="connectfour.js"></script>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="//code.jquery.com/qunit/qunit-1.20.0.js"></script>
+  <script>
+  
+  /* Initialization tests */
+  QUnit.test("Initializes Connect Four game", function(assert) {	
+  	var game = Object.create(Game);
+  	var board = game.init();
+
+  	assert.equal(board[0][0], 0, "Initializes 0 0 in the array");
+  	assert.equal(board[0][1], 0, "Initializes 0 1 in the array");
+  	assert.equal(board[0][2], 0, "Initializes 0 2 in the array");
+  	assert.equal(board[0][3], 0, "Initializes 0 3 in the array");
+  	assert.equal(board[0][4], 0, "Initializes 0 4 in the array");
+  	assert.equal(board[1][0], 0, "Initializes 1 0 in the array");
+  	assert.equal(board[1][1], 0, "Initializes 1 1 in the array");
+  	assert.equal(board[1][2], 0, "Initializes 1 2 in the array");
+  	assert.equal(board[1][3], 0, "Initializes 1 3 in the array");
+  	assert.equal(board[1][4], 0, "Initializes 1 4 in the array");
+  });
+
+  /* Data introduction in the board */
+  QUnit.test("Introduce number in the board", function(assert) {
+  	var game = Object.create(Game);
+  	var board = game.init();	
+  	board = game.introduce(0, 0);
+  	assert.equal(board[0][0], 1, "Check introduced number player 1");
+  });
+
+  /* Drop tests */
+  QUnit.test("Drop disc in the board", function(assert) {	
+   	var game = Object.create(Game);
+  	var board = game.init();
+
+  	// First column
+  	assert.equal(game.drop(0), 4, "Check last position column drop");
+  	assert.equal(game.drop(0), 3, "Check last position column drop");
+  	assert.equal(game.drop(0), 2, "Check last position column drop");
+  	assert.equal(game.drop(0), 1, "Check last position column drop");
+  	assert.equal(game.drop(0), 0, "Check last position column drop");
+
+  	// Second column
+  	assert.equal(game.drop(1), 4, "Check last position column drop");
+  	assert.equal(game.drop(1), 3, "Check last position column drop");
+  	assert.equal(game.drop(1), 2, "Check last position column drop");
+  	assert.equal(game.drop(1), 1, "Check last position column drop");
+  	assert.equal(game.drop(1), 0, "Check last position column drop");
+
+  	// Third column
+  	assert.equal(game.drop(2), 4, "Check last position column drop");
+  	assert.equal(game.drop(2), 3, "Check last position column drop");
+  	assert.equal(game.drop(2), 2, "Check last position column drop");
+  	assert.equal(game.drop(2), 1, "Check last position column drop");
+  	assert.equal(game.drop(2), 0, "Check last position column drop");
+
+  	// Third column
+  	assert.equal(game.drop(3), 4, "Check last position column drop");
+  	assert.equal(game.drop(3), 3, "Check last position column drop");
+  	assert.equal(game.drop(3), 2, "Check last position column drop");
+  	assert.equal(game.drop(3), 1, "Check last position column drop");
+  	assert.equal(game.drop(3), 0, "Check last position column drop");
+
+  	// Fourth column
+  	assert.equal(game.drop(4), 4, "Check last position column drop");
+  	assert.equal(game.drop(4), 3, "Check last position column drop");
+  	assert.equal(game.drop(4), 2, "Check last position column drop");
+  	assert.equal(game.drop(4), 1, "Check last position column drop");
+  	assert.equal(game.drop(4), 0, "Check last position column drop");
+  });
+
+	/* Check board player 1 horizontal */
+	QUnit.test("Check Board Player 1 Horizontal", function(assert) {	
+   	var game = Object.create(Game);
+  	var board = game.init();
+  	game.drop(0);
+  	game.drop(0);
+  	game.drop(1);
+  	game.drop(1);
+  	game.drop(2);
+  	game.drop(2);
+  	game.drop(3);
+  	game.drop(3);
+  	assert.equal(game.checkBoard(0), true, "Check last position column drop");
+  });
+
+	/* Check board player 1 vertical */
+  QUnit.test("Check Board Player 1 Vertical", function(assert) {	
+   	var game = Object.create(Game);
+  	var board = game.init();
+  	game.drop(0);
+  	game.drop(1);
+  	game.drop(0);
+  	game.drop(1);
+  	game.drop(0);
+  	game.drop(1);
+  	game.drop(0);
+  	game.drop(1);
+  	assert.equal(game.checkBoard(0), true, "Check last position column drop");
+  });
+
+  	/* Check board player 2 horizontal */
+	QUnit.test("Check Board Player 2 Horizontal", function(assert) {	
+   	var game = Object.create(Game);
+  	var board = game.init();
+  	game.drop(4);
+  	game.drop(0);
+  	game.drop(1);
+  	game.drop(1);
+  	game.drop(2);
+  	game.drop(2);
+  	game.drop(3);
+  	game.drop(3);
+  	assert.equal(game.checkBoard(1), true, "Check last position column drop");
+  });
+
+	/* Check board player 2 vertical */
+  QUnit.test("Check Board Player 2 Vertical", function(assert) {	
+   	var game = Object.create(Game);
+  	var board = game.init();
+  	game.drop(4);
+  	game.drop(1);
+  	game.drop(0);
+  	game.drop(1);
+  	game.drop(0);
+  	game.drop(1);
+  	game.drop(0);
+  	game.drop(1);
+  	assert.equal(game.checkBoard(1), true, "Check last position column drop");
+  });
+  </script>
+</body>
+</html>

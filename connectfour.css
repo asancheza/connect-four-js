@@ -1,0 +1,66 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+}
+
+h1, div {
+	text-align: center;
+}
+
+div {
+	height: 150px;
+}
+
+#player {
+	height: 50px;
+}
+
+.game {
+	text-align: center;
+}
+
+.row {
+	margin-right: -15px;
+  margin-left: 250px;
+}
+
+.col-md-1 { 
+	background-color: white;
+	border-radius: 50%;
+	border-style: solid;
+  border-color: black;
+  margin-right: 5px;
+  width: 11.33333333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 30px;
+}
+
+.red {
+	background-color: red;
+	border-radius: 50%;
+	-webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+.yellow {
+	background-color: yellow;
+	border-radius: 50%;
+	-webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
